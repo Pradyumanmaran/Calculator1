@@ -1,0 +1,223 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  background-color: rgb(171, 183, 194);
+  font-family: "Arimo", sans-serif;
+}
+.change {
+  display: flex;
+  justify-content: start;
+  width: 360px;
+}
+.toggleButton {
+  width: 100px;
+  height: 50px;
+  background-color: #ebebeb;
+  border-radius: 50px;
+  box-shadow: inset 0px 5px 15px rgba(215, 214, 214, 0.4),
+    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Vertical centering */
+  transition: 1s;
+  position: relative;
+}
+.toggleButton.dark {
+  width: 100px;
+  height: 50px;
+  background-color: black;
+  border-radius: 50px;
+  box-shadow: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Vertical centering */
+  transition: 1s;
+  position: relative;
+}
+.toggle {
+  position: absolute;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-color: rgba(0, 177, 216, 0.8);
+  cursor: pointer;
+  left: 0;
+  transition: 0.5s;
+}
+.toggle.dark {
+  position: absolute;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-color: orange;
+  cursor: pointer;
+  left: 55px;
+  transition: 0.5s;
+}
+.size-body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.Calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+  height: 500px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.25);
+}
+.Calculator.dark {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+  height: 500px;
+  border-radius: 20px;
+  background-color:#28282B;
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.25);
+}
+.input_div {
+  width: 300px;
+  height: 70px;
+  border-color: red;
+  border-radius: solid 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.previous_operation {
+  width: 297px;
+  height: 40px;
+  border: solid 2px black;
+  text-align: end;
+  font-family: "Arimo", sans-serif;
+  color: #000;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+}
+.previous_operation.dark {
+  width: 297px;
+  height: 40px;
+  border: solid 2px black;
+  text-align: end;
+  font-family: "Arimo", sans-serif;
+  color: white;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+}
+.input {
+  background-color: none;
+  text-align: end;
+  color: rgba(0, 177, 216, 0.8);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 50px;
+  font-family: "Arimo", sans-serif;
+  border: none;
+}
+.input.dark {
+  background-color: #28282B;
+  text-align: end;
+  color:orange;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 50px;
+  font-family: "Arimo", sans-serif;
+  border: none;
+}
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 67.284px);
+  grid-template-rows: repeat(5, 65.853px);
+  gap: 10px;
+}
+.item {
+  font-family: "Arimo", sans-serif;
+  width: 67.284px;
+  border-color: white;
+  height: 65.853px;
+  background-color: lightslategray;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  border-radius: 13px;
+  background: radial-gradient(
+    81.24% 81.24% at 50.59% 50.11%,
+    rgba(255, 255, 255, 0) 0%,
+    #e5e5e5 100%
+  );
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.55);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+button.dark {
+  font-family: "Arimo", sans-serif;
+  width: 67.284px;
+  height: 65.853px;
+  background-color: black;
+  border-radius: 10px;
+  border-color: black;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  background: black;
+  justify-content: center;
+  color: #fff;
+  border-radius: 13px;
+  box-shadow: none;
+  color: white;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.clearAll {
+  color: red;
+}
+.clearAll.dark{
+  background-color: rgb(185, 59, 59);
+}
+.equalTo {
+  background-color: #33c0df, #04a4c7;
+  border-radius: 13px;
+  background: radial-gradient(
+    81.24% 81.24% at 50.59% 50.11%,
+    #33c0df 0%,
+    #04a4c7 100%
+  );
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.55);
+}
+.equalTo.dark {
+  background-color: orange;
+  border-radius: 13px;
+  background: orange;
+  box-shadow: none;
+}

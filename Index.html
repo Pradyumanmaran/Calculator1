@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="script" href="script.js" />
+  </head>
+  <body>
+    <section class="size-body">
+      <div class="change">
+        <label for="checkboxID" class="toggleButton">
+          <i class="toggle"></i>
+        </label>
+      </div>
+      <section class="Calculator">
+        <div class="input_div">
+          <div class="previous_operation"></div>
+          <input type="text" placeholder="0" class="input" />
+        </div>
+        <div class="keys">
+          <button class="left_bracket item">(</button>
+          <button class="right_bracket item">)</button>
+          <button class="percent item operand">%</button>
+          <button class="clearAll item">CE</button>
+          <button class="number 7 item">7</button>
+          <button class="number 8 item">8</button>
+          <button class="number 9 item">9</button>
+          <button class="/ item operand">/</button>
+          <button class="number 4 item">4</button>
+          <button class="number five item">5</button>
+          <button class="number six item">6</button>
+          <button class="* item operand">*</button>
+          <button class="number 1 item">1</button>
+          <button class="number 2 item">2</button>
+          <button class="number 3 item">3</button>
+          <button class="- item operand">-</button>
+          <button class="number 0 item">0</button>
+          <button class="operand decimal item">.</button>
+          <button class="+ operand item">+</button>
+          <button class="= equalTo item">=</button>
+        </div>
+      </section>
+    </section>
+    <script>
+      const number = document.querySelectorAll(".number");
+      const operand = document.querySelectorAll(".operand");
+      const input = document.querySelector(".input");
+      const equalTo = document.querySelector(".equalTo");
+      const clearAll = document.querySelector(".clearAll");
+      const leftBracket = document.querySelector(".left_bracket");
+      const rightBracket = document.querySelector(".right_bracket");
+      let previous_operation = document.querySelector(".previous_operation");
+      const label = document.querySelector("label");
+
+      // Iterating numbers and appending the value in the input place
+      number.forEach((cal) => {
+        cal.addEventListener("click", () => {
+          input.value += cal.textContent;
+        });
+      });
+      // Iterating operands and appending the value in the input place
+      operand.forEach((oper) => {
+        oper.addEventListener("click", () => {
+          input.value += oper.textContent;
+        });
+      });
+
+      // Calculation and evaluation
+      equalTo.addEventListener("click", () => {
+        //Setting previous operand value
+        try {
+          previous_operation.textContent = input.value;
+          input.value = eval(input.value);
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Please enter valid input");
+        }
+      });
+      // clearing all values
+      clearAll.addEventListener("click", () => {
+        input.value = "";
+        previous_operation.textContent = "";
+      });
+      // left Bracket
+      leftBracket.addEventListener("click", () => {
+        input.value += "(";
+      });
+
+      // right Bracket
+      rightBracket.addEventListener("click", () => {
+        input.value += ")";
+      });
+      label.addEventListener("click", ToggleEvent);
+
+      // setting condition checked with input
+      // const checInput = document.querySelector("#checkboxID");
+      // const label = document.querySelector("label");
+      // console.log(label);
+      // if (checInput.checked) {
+      //   label.onclick = ToggleEvent;
+      // }
+
+      // label.addEventListener("click",ToggleEvent)
+
+      function ToggleEvent() {
+        const label = document.querySelector("label");
+        label.classList.toggle("dark");
+        const tgBTn = document.querySelector("i");
+        tgBTn.classList.toggle("dark");
+        const btn = document.querySelectorAll("button");
+        btn.forEach((button) => {
+          button.classList.toggle("dark");
+        });
+        const equalTo = document.querySelector("button equalTo");
+
+        calculator = document.querySelector(".Calculator");
+        calculator.classList.toggle("dark");
+        input.classList.toggle("dark");
+
+        let previous_operation1 = document.querySelector(".previous_operation");
+        previous_operation1.classList.toggle("dark");
+        console.log(previous_operation1);
+
+        // console.log(btn);
+        // label.style.backgroundColor = "black";
+        // const toggleButton = document.querySelector(".toggleButton");
+        // toggleButton.style.boxShadow = "none";
+        // const tgBTn = document.querySelector("#toggle");
+        // tgBTn.style.backgroundColor = "orange";
+        // tgBTn.style.left = "55px";
+        // console.log(tgBTn);
+        // console.log(toggleButton);
+        // const item = document.querySelectorAll(".item");
+        // item.forEach((items) => {
+        //   items.style.backgroundColor = "black";
+        //   items.style.background = "black";
+        //   items.style.color = "white";
+        // });
+        // equalTo.style.backgroundColor = "orange";
+        // calculator = document.querySelector(".Calculator");
+        // calculator.style.background = "#28282B";
+        // input.style.background = "#28282B";
+        // input.style.color = "orange";
+        // previous_operation.style.color = "white";
+      }
+    </script>
+  </body>
+</html>
